@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Салон краси "SALON 001"</title>
+    
+    <!-- Основний CSS -->
+    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    
+    <!-- Твій скрипт -->
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+       <header class="hero-header">
+        <div class="header-top">
+            <div class="logo">
+                <span>SALON 001</span>
+                </div>
+            <div class="nav-contact">
+                <nav>
+                    <a href="#about-salon">Про нас</a>
+                    <a href="#services">Послуги</a>
+                    <a href="#" id="price-link">Прайс-лист</a>
+                    <a href="#contacts">Контакти</a>
+                </nav>
+                <class="contact-info">
+                    <span class="city-tooltip">Вінниця
+                        <span class="tooltip-text">проспект Коцюбинського, 25, ТЦ "4 сезона"</span>
+                    </span> |<a href="tel:+380974366363">+38 (097) 436 63 63</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="hero-content hero-text">
+            <div id="slogan">
+                <span class="static-text">Відчуй справжню красу в атмосфері стилю та турботи. Наш салон — це місце, де кожна деталь створена для твого комфорту,
+                а кожен образ — витвір мистецтва. Елегантні зачіски, розкішне фарбування та бездоганні укладки, створені для тих, хто
+                цінує стиль, якість і вишуканий сервіс.</span>
+                <span id="typing-text"></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="about-salon" style="display: flex; align-items: center; padding: 40px;">
+        <img src="images/salon001 (1).jpg" style="width: 50%; border-radius: 10px;">
+        <div style="padding-left: 30px;">
+            <h3>Про наш салон</h3>
+            <p>
+                Ми створили простір, де краса поєднується з турботою, а кожен візит — це приємна подорож до гармонії та стилю. Наша
+                майстриня — професіонал своєї справи, яка не просто працює із волоссям, а створює індивідуальні образи, що
+                підкреслюють твою унікальність.
+                <br><br>
+                У салоні панує атмосфера затишку, довіри та естетики. Ми використовуємо сучасні техніки, преміальні засоби та
+                враховуємо кожне побажання, щоб результат перевершував очікування.
+            </p>
+        </div>
+    </section>
+                
+
+    <main>
+        <section class="portfolio-section" id="services">
+            <h2>Портфоліо</h2>
+            <div class="services">
+                <a href="haircuts.html" class="service-card">
+                    <h3>Стрижки, укладки, зачіски</h3>
+                </a>
+                <a href="hair-color.html" class="service-card">
+                    <h3>Усі види фарбувань</h3>
+                </a>
+                <a href="treatment.html" class="service-card">
+                    <h3>Процедура - наповнення та зволоження волосся</h3>
+                </a>
+            </div>
+        </section>
+
+            
+        <footer class="footer-contact" id="contacts">
+            <div class="footer-content">
+                <div class="footer-contact-box">
+                    <h2>Контакти</h2>
+                    <p>Адреса: проспект Коцюбинського, 25, Вінниця, ТЦ "4 сезона", третій поверх № 55</p>
+                    <p>Телефон: +380 97 436 63 63</p>
+                    <p>Instagram: <a href="https://instagram.com/888tetyana" target="_blank">@888tetyana</a></p>
+                    <p>TikTok: <a href="https://www.tiktok.com/@tetyana882" target="_blank">@tetyana882</a></p>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    
+    </footer>
+
+    <script>
+        const text = "зі стильною зачіскою";
+        let index = 0;
+
+        function typeText() {
+            const typingElement = document.getElementById("typing-text");
+            typingElement.classList.add("fade-in");
+            if (index < text.length) {
+                typingElement.textContent += text.charAt(index);
+                index++;
+                setTimeout(typeText, 100);
+            } else {
+                typingElement.style.borderRight = "none";
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", typeText);
+    </script>
+
+<div id="price-modal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Прайс-лист</h2>
+                  <h3>Перукарські послуги</h3>
+            <strong>Стрижка (миття голови + сушка)</strong>
+            <ul>
+                <li>1. Довжина волосся — 500 грн</li>
+                <li>2. Довжина волосся — 600 грн</li>
+                <li>3. Довжина волосся — 700 грн</li>
+            </ul>
+
+            <strong>Укладання волосся</strong>
+            <ul>
+                <li>1. Довжина волосся — 500 грн</li>
+                <li>2. Довжина волосся — 600 грн</li>
+            </ul>
+
+            <h3>Фарбування волосся в один тон</h3>
+            <ul>
+                <li>Корінь — 1000 грн</li>
+                <li>1. Довжина волосся — 1500 грн</li>
+                <li>2. Довжина волосся — 2000 грн</li>
+            </ul>
+
+            <h3>Мелірування волосся</h3>
+            <ul>
+                <li>1. Довжина волосся — 1500 грн</li>
+                <li>2. Довжина волосся — 2500 грн</li>
+                <li>3. Довжина волосся — 3500 грн</li>
+            </ul>
+
+            <h3>Тонування волосся</h3>
+            <ul>
+                <li>1. Довжина волосся — 1500 грн</li>
+                <li>2. Довжина волосся — 2000 грн</li>
+            </ul>
+
+            <h3>Складні техніки фарбування</h3>
+            <ul>
+                <li>1. Контурінг — 3000 грн</li>
+                <li>2. Контурінг — 4500 грн</li>
+                <li>3. Контурінг — 6000 грн</li>
+                <li>Airtouch — 3500–7000 грн</li>
+                <li>Balayage — 3000–4500 грн</li>
+                <li>Мікромелірування — 2500–6000 грн</li>
+                <li>Корекція топової зони в техніці Airtouch — 3000–5000 грн</li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
