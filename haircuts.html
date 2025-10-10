@@ -18,7 +18,7 @@
                 укладок і святкових зачісок.
             </p>
 
-            <div class="swiper mySwiper">
+            <div class="swiper haircut-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="images/strizka-kare.jpg" alt="Стрижка 1"></div>
                     <div class="swiper-slide"><img src="images/strizka-od.jpg" alt="Стрижка 2"></div>
@@ -38,19 +38,14 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <!-- Swiper Initialization -->
     <script>
-        const swiper = new Swiper(".mySwiper", {
+        const swiper = new Swiper('.haircut-slider', {
             loop: true,
             autoplay: {
                 delay: 3000,
-                disableOnInteraction: false,
             },
-            slidesPerView: 1,
-            spaceBetween: 20,
             pagination: {
-                el: ".swiper-pagination",
+                el: '.swiper-pagination',
                 clickable: true,
             },
         });

@@ -21,7 +21,7 @@
             Від натуральних відтінків до яскравих експериментів — ми підбираємо колір, який пасує саме вам.
         </p>
 
-        <div class="swiper mySwiper">
+        <div class="swiper color-slider">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><img src="images/farb-blond.jpg" alt="Фарбування 1"></div>
                 <div class="swiper-slide"><img src="images/farb1.jpg" alt="Фарбування 3"></div>
@@ -46,19 +46,14 @@
 
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-    <!-- Swiper Initialization -->
     <script>
-        const swiper = new Swiper(".mySwiper", {
+        const swiper = new Swiper('.color-slider', {
             loop: true,
             autoplay: {
                 delay: 3000,
-                disableOnInteraction: false,
             },
-            slidesPerView: 1,
-            spaceBetween: 20,
             pagination: {
-                el: ".swiper-pagination",
+                el: '.swiper-pagination',
                 clickable: true,
             },
         });
