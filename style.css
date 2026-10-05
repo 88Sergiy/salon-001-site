@@ -1,4 +1,4 @@
-body {
+ody {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
@@ -6,7 +6,7 @@ body {
 }
 
 header.hero-header {
-    background-image: url("images/farb-brunet.jpg");
+    background-image: url("images/str.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -223,7 +223,7 @@ header.hero-header::before {
 
 
 .portfolio-section {
-    background-image: url('images/strizka.jpg');
+    background-image: url('images/klimat-procedura.jpg');
     /* заміни на свій шлях */
     background-size: cover;
     background-position: center;
@@ -275,89 +275,89 @@ header.hero-header::before {
 }
 
 .hair-slider-section {
-        padding: 40px 20px;
-        background-color: #fff;
-        text-align: center;
-    }
+    padding: 40px 20px;
+    background-color: #fff;
+    text-align: center;
+}
 
-    .hair-slider-section h2 {
-        font-size: 2em;
-        margin-bottom: 10px;
-    }
+.hair-slider-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+}
 
-    .slider-description {
-        font-size: 1.1em;
-        margin-bottom: 30px;
-        color: #555;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
-    }
+.slider-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #555;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-                .swiper {
-                    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-                }
-    
-        .swiper-slide {
-            display: flex;
-            justify-content: center;
-            /* Центрує фото по горизонталі */
-            align-items: center;
-            /* Центрує фото по вертикалі */
-        }
-    
-        .swiper-slide img {
-            max-width: 100%;
-            max-height: 600px;
-            object-fit: contain;
-            /* Забезпечує повне відображення фото без обрізання */
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-            transition: transform 0.5s ease;
-        }
+.swiper {
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
 
-                                  
-        .hair-slider-section {
-                                    padding: 60px 20px;
-                                    background: url('images/logo.jpg') no-repeat center center;
-                                    background-size: cover;
-                                    text-align: center;
-                                    color: #fff;
-                                    position: relative;
-                                    z-index: 1;
-                                }
-                
-                                .hair-slider-section::before {
-                                    content: "";
-                                    position: absolute;
-                                    top: 0;
-                                    left: 0;
-                                    width: 100%;
-                                    height: 100%;
-                                    background-color: rgba(0, 0, 0, 0.4);
-                                    /* затемнення для читабельності */
-                                    z-index: -1;
-                                }
-                
-                                .hair-slider-section h2 {
-                                    font-size: 2em;
-                                    margin-bottom: 10px;
-                                    position: relative;
-                                    z-index: 2;
-                                }
-                
-                                .slider-description {
-                                    font-size: 1.1em;
-                                    margin-bottom: 30px;
-                                    color: #eee;
-                                    max-width: 700px;
-                                    margin-left: auto;
-                                    margin-right: auto;
-                                    position: relative;
-                                    z-index: 2;
-                                }
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    /* Центрує фото по горизонталі */
+    align-items: center;
+    /* Центрує фото по вертикалі */
+}
 
-    .hair-color-hero {
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    /* Забезпечує повне відображення фото без обрізання */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+
+.hair-slider-section {
+    padding: 60px 20px;
+    background: url('images/logo.jpg') no-repeat center center;
+    background-size: cover;
+    text-align: center;
+    color: #fff;
+    position: relative;
+    z-index: 1;
+}
+
+.hair-slider-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* затемнення для читабельності */
+    z-index: -1;
+}
+
+.hair-slider-section h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.slider-description {
+    font-size: 1.1em;
+    margin-bottom: 30px;
+    color: #eee;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    z-index: 2;
+}
+
+.hair-color-hero {
     background-image: url("images/logo.jpg");
     background-size: cover;
     background-position: center;
@@ -370,7 +370,8 @@ header.hero-header::before {
 }
 
 .hair-color-overlay {
-    background-color: rgba(0, 0, 0, 0.2); /* зробимо менш темним */
+    background-color: rgba(0, 0, 0, 0.2);
+    /* зробимо менш темним */
     padding: 60px 20px;
     max-width: 1000px;
     margin: 0 auto;
@@ -598,21 +599,21 @@ body {
         position: relative;
     }
 
-                .treatment-slider .swiper-slide img {
-                    width: 100%;
-                    height: auto;
-                    object-fit: contain;
-                }
+    .treatment-slider .swiper-slide img {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+    }
 
     .slider-side-text {
         background-image: url("images/logo.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            padding: 20px;
-            border-radius: 10px;
-            color: #fff;
-        }
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        padding: 20px;
+        border-radius: 10px;
+        color: #fff;
+    }
 
     .text-inner {
         font-size: 14px;
@@ -638,12 +639,13 @@ body {
 
 .footer-contact {
     position: relative;
-    background-image: url("images/tc-ok.jpg");
+    background-image: url("images/logo.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     height: 220px;
     overflow: hidden;
+    
 }
 
 /* Блок з адресою та соцмережами */
@@ -705,7 +707,11 @@ body {
     opacity: 1;
 }
 
-
-
+.background-wrapper {
+    background-image: url('images/str.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
 
