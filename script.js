@@ -1,4 +1,4 @@
-
+// Анімація тексту
 document.addEventListener("DOMContentLoaded", () => {
   const text = "зі стильною зачіскою";
   const typingElement = document.getElementById("typing-text");
@@ -24,7 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
   typeText();
 });
 
-// Swiper-слайдер (головна сторінка або універсальний)
+
+// Swiper-слайдер
 document.addEventListener("DOMContentLoaded", () => {
   const swiperElement = document.querySelector(".swiper");
   if (!swiperElement) return;
@@ -48,27 +49,43 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 });
 
-// Модальне вікно "Прайс-лист"
+
+// Модальне вікно прайсу — ПРАВИЛЬНИЙ ОДИН БЛОК
 document.addEventListener("DOMContentLoaded", () => {
-  const priceLink = document.getElementById("price-link");
-  const modal = document.getElementById("price-modal");
+    const priceLink = document.getElementById("price-link");
+    const modal = document.getElementById("price-modal");
+    const closeBtn = modal.querySelector(".close");
 
-  if (!priceLink || !modal) return;
+    if (!priceLink || !modal || !closeBtn) return;
 
-  const closeBtn = modal.querySelector(".close");
+    // Відкрити модальне вікно
+    priceLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        modal.style.display = "flex";
+    });
 
-  priceLink.addEventListener("click", (e) => {
-    e.preventDefault();
-    modal.style.display = "block";
-  });
+    // Закрити по кнопці ×
+    closeBtn.addEventListener("click", () => {
+        modal.style.display = "none";
+    });
 
-  closeBtn.addEventListener("click", () => {
-    modal.style.display = "none";
-  });
+    // Закрити по кліку поза модальним вікном
+    window.addEventListener("click", (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    });
+});
 
-  window.addEventListener("click", (e) => {
-    if (e.target === modal) {
-      modal.style.display = "none";
-    }
+
+// Бургер-меню
+document.addEventListener("DOMContentLoaded", () => {
+  const burger = document.getElementById("burger");
+  const navs = document.querySelectorAll(".nav-contact nav");
+
+  if (!burger || !navs.length) return;
+
+  burger.addEventListener("click", () => {
+    navs.forEach(n => n.classList.toggle("active"));
   });
 });

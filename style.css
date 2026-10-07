@@ -1,157 +1,148 @@
-ody {
+/* ===== БАЗА ===== */
+
+* {
+    box-sizing: border-box;
     margin: 0;
+    padding: 0;
+}
+
+body {
     font-family: 'Segoe UI', sans-serif;
     background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
     color: #333;
 }
+
+/* ===== ХЕДЕР / HERO ===== */
 
 header.hero-header {
     background-image: url("images/str.jpg");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    height: 600px;
+    min-height: 560px;
     position: relative;
-    color: white;
+    color: #fff;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: center;
-    overflow: hidden;
+    padding-top: 80px;
 }
 
 header.hero-header::before {
     content: "";
     position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    inset: 0;
     background-color: rgba(0, 0, 0, 0.4);
     z-index: 1;
 }
 
+/* Верхня панель */
+
 .header-top {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    padding: 20px 20px;
-    /* зменшено з 40px */
+    padding: 12px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10;
-    box-sizing: border-box;
+    z-index: 20;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
 }
 
 .logo span {
     color: #e91e63;
-    /* рожево-червоний акцент */
     font-family: 'Playfair Display', serif;
+    font-size: 22px;
 }
+
+/* Навігація + контакти */
 
 .nav-contact {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 5px;
-    color: white;
-    max-width: 40%;
-    flex-wrap: wrap;
-    word-break: break-word;
+    gap: 6px;
+    color: #fff;
 }
 
 .nav-contact nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 16px;
 }
 
 .nav-contact nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
     font-weight: 500;
+    font-size: 15px;
 }
 
-.nav-contact nav a {
-    margin-left: 15px;
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+.nav-contact nav a:hover {
+    color: #ffd1dc;
 }
+
+/* Контакти в хедері */
 
 .contact-info {
     font-size: 14px;
 }
 
-.main-nav {
-    display: flex;
-    gap: 30px;
-}
-
-.main-nav a {
-    color: white;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 18px;
-}
-
-.main-nav a:hover {
-    color: #ffd1dc;
-}
-
-.contact-bar {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 16px;
-    font-weight: 500;
-    color: white;
-    background-color: rgba(0, 0, 0, 0.4);
-    padding: 8px 12px;
-    border-radius: 8px;
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    z-index: 10;
-}
-
-.tooltip {
+.city-tooltip {
     position: relative;
     cursor: pointer;
 }
 
-.tooltip::after {
-    content: attr(title);
-    position: absolute;
-    top: -30px;
-    left: 0;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: #fff;
-    padding: 5px 8px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
+.tooltip-text {
+    visibility: hidden;
     opacity: 0;
-    pointer-events: none;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: #ffd700;
+    padding: 6px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
     transition: opacity 0.3s ease;
+    z-index: 30;
 }
 
-.tooltip:hover::after {
+.city-tooltip:hover .tooltip-text {
+    visibility: visible;
     opacity: 1;
 }
 
-.separator {
-    color: #ccc;
+/* Бургер-меню */
+
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    margin-left: 15px;
+    cursor: pointer;
 }
 
-.hero-text {
+.burger span {
+    width: 24px;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+/* Основний текст у hero */
+
+.hero-content.hero-text {
     position: relative;
     z-index: 2;
-    max-width: 90%;
-    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    text-align: left;
 }
 
 .static-text {
@@ -159,6 +150,8 @@ header.hero-header::before {
     margin-bottom: 10px;
     color: #fff;
     font-weight: 600;
+    font-size: 18px;
+    line-height: 1.7;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
 }
 
@@ -168,12 +161,8 @@ header.hero-header::before {
     white-space: nowrap;
     border-right: 2px solid #e91e63;
     animation: blink 0.7s infinite;
-    font-size: 1.5em;
-    text-align: center;
-    overflow: visible;
-    /* 👈 важливо! */
-    width: fit-content;
-    margin: 20px auto;
+    font-size: 1.4em;
+    margin-top: 10px;
 }
 
 .no-cursor {
@@ -182,66 +171,70 @@ header.hero-header::before {
 }
 
 @keyframes blink {
-
-    0%,
-    100% {
+    0%, 100% {
         border-color: transparent;
     }
-
     50% {
         border-color: #e91e63;
     }
 }
 
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.5s ease-in forwards;
-}
+/* ===== БЛОК "ПРО НАС" ===== */
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-
-    to {
-        opacity: 1;
-    }
-}
-
-.section {
+#about-salon {
+    display: flex;
+    align-items: center;
     padding: 40px 20px;
-    max-width: 1000px;
-    margin: auto;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 30px;
 }
 
-.services {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
+#about-salon img {
+    width: 50%;
+    border-radius: 10px;
+    object-fit: cover;
 }
 
+#about-salon h3 {
+    font-size: 22px;
+    margin-bottom: 10px;
+}
 
+#about-salon p {
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* ===== ПОРТФОЛІО / ПОСЛУГИ ===== */
 
 .portfolio-section {
     background-image: url('images/klimat-procedura.jpg');
-    /* заміни на свій шлях */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 60px 20px;
     color: #fff;
-    /* світлий текст на темному фоні */
     text-align: center;
     position: relative;
+    z-index: 2; /* щоб бути над фоном about-and-contacts-bg */
+}
+
+.portfolio-section::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.45);
+    z-index: 1;
 }
 
 .portfolio-section h2 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #b85c8e;
-    /* рожевий акцент */
-    margin-bottom: 1em;
     position: relative;
+    z-index: 2;
+    font-size: 26px;
+    font-weight: 700;
+    color: #ffd1dc;
+    margin-bottom: 20px;
 }
 
 .portfolio-section h2::after {
@@ -249,44 +242,110 @@ header.hero-header::before {
     display: block;
     width: 60px;
     height: 3px;
-    background-color: #b85c8e;
+    background-color: #ffd1dc;
     margin: 10px auto 0;
     border-radius: 2px;
 }
 
+/* Сітка послуг */
+
+.services {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
 .service-card {
-    display: inline-block;
-    margin: 10px 20px;
+    display: block;
+    background-color: rgba(255, 255, 255, 0.12);
+    border-radius: 10px;
+    padding: 18px 16px;
     text-decoration: none;
-    color: #333;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    color: #fff;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.service-card h3 {
+    font-size: 18px;
 }
 
 .service-card:hover {
-    color: #b85c8e;
+    background-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-3px);
 }
 
+/* ===== ФАРБУВАННЯ (hair-color.html) ===== */
 
-.booking-form {
-    background-color: white;
-    padding: 20px;
-    border-radius:
+.hair-color-hero {
+    background-image: url("images/logo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 80px 20px;
+    position: relative;
+    color: #fff;
+    text-align: center;
 }
+
+.hair-color-hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.35);
+    z-index: 1;
+}
+
+.hair-color-overlay {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    background-color: rgba(0, 0, 0, 0.35);
+    border-radius: 10px;
+}
+
+.hair-color-overlay p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 25px;
+}
+
+/* Swiper загальний */
+
+.swiper {
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    max-width: 100%;
+    max-height: 600px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+/* ===== СТРИЖКИ (haircuts.html) ===== */
 
 .hair-slider-section {
-    padding: 40px 20px;
+    padding: 60px 20px;
     background-color: #fff;
     text-align: center;
 }
 
-.hair-slider-section h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-}
-
 .slider-description {
-    font-size: 1.1em;
+    font-size: 16px;
     margin-bottom: 30px;
     color: #555;
     max-width: 700px;
@@ -294,361 +353,18 @@ header.hero-header::before {
     margin-right: auto;
 }
 
-.swiper {
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-}
-
-.swiper-slide {
-    display: flex;
-    justify-content: center;
-    /* Центрує фото по горизонталі */
-    align-items: center;
-    /* Центрує фото по вертикалі */
-}
-
-.swiper-slide img {
-    max-width: 100%;
-    max-height: 600px;
-    object-fit: contain;
-    /* Забезпечує повне відображення фото без обрізання */
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    transition: transform 0.5s ease;
-}
-
-
-.hair-slider-section {
-    padding: 60px 20px;
-    background: url('images/logo.jpg') no-repeat center center;
-    background-size: cover;
-    text-align: center;
-    color: #fff;
-    position: relative;
-    z-index: 1;
-}
-
-.hair-slider-section::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4);
-    /* затемнення для читабельності */
-    z-index: -1;
-}
-
-.hair-slider-section h2 {
-    font-size: 2em;
-    margin-bottom: 10px;
-    position: relative;
-    z-index: 2;
-}
-
-.slider-description {
-    font-size: 1.1em;
-    margin-bottom: 30px;
-    color: #eee;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    z-index: 2;
-}
-
-.hair-color-hero {
-    background-image: url("images/logo.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 100px 20px;
-    position: relative;
-    color: #fff;
-    text-align: center;
-    border: none;
-}
-
-.hair-color-overlay {
-    background-color: rgba(0, 0, 0, 0.2);
-    /* зробимо менш темним */
-    padding: 60px 20px;
-    max-width: 1000px;
-    margin: 0 auto;
-    border-radius: 10px;
-    box-shadow: none;
-}
-
-.swiper {
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: none;
-}
-
-
-
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 700px;
-    color: #333;
-    overflow-y: auto;
-    max-height: 80vh;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #e91e63;
-    cursor: pointer;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 999;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: 5% auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 90%;
-    max-width: 700px;
-    color: #333;
-    overflow-y: auto;
-    max-height: 80vh;
-}
-
-.modal-content h2 {
-    margin-top: 0;
-    color: #e91e63;
-    text-align: center;
-}
-
-.modal-content h3 {
-    margin-top: 20px;
-    color: #23a8ac;
-}
-
-.modal-content ul {
-    list-style: none;
-    padding-left: 0;
-}
-
-.modal-content li {
-    margin-bottom: 5px;
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 30px;
-    font-size: 28px;
-    font-weight: bold;
-    color: #e91e63;
-    cursor: pointer;
-}
-
-.modal {
-    display: none;
-    /* ... */
-}
-
-.modal-content {
-    /* ... */
-}
-
-.close {
-    /* ... */
-}
-
-
-body {
-    background-image: url("images/logo.jpg");
-    /* заміни на свою назву файлу */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    color: #fff;
-    /* якщо фон темний — текст буде читабельним */
-}
-
-
-.booking-form {
-    max-width: 900px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-/* === 📦 Контейнер секції "Процедура" === */
-.treatment-slider-wrapper {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    /* фото зліва, текст справа */
-    align-items: flex-start;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 60px auto;
-    padding: 20px;
-}
-
-/* === 🎞️ Swiper-слайдер === */
-.treatment-slider {
-    flex: 1 1 700px;
-    max-width: 700px;
-    width: 100%;
-    height: auto;
-    padding-bottom: 40px;
-}
-
-.treatment-slider .swiper-wrapper {
-    align-items: center;
-}
-
-.treatment-slider .swiper-slide img {
-    width: 100%;
-    height: auto;
-    object-fit: contain;
-    display: block;
-    margin: 0 auto;
-    border-radius: 10px;
-}
-
-/* === 📝 Текстовий блок === */
-.slider-side-text {
-    flex: 1 1 400px;
-    max-width: 400px;
-    padding: 20px;
-    color: #080808;
-    text-shadow: 0 1px 4px rgba(189, 38, 38, 0.6);
-}
-
-.text-inner {
-    font-size: 22px;
-    line-height: 1.9;
-    font-weight: 700;
-    color: #ffd1dc;
-    /* чорний текст */
-    text-shadow: 0 1px 2px rgba(131, 9, 9, 0.4);
-    /* світла тінь для об'єму */
-}
-
-
-/* === 📱 Адаптація для планшетів === */
-@media (max-width: 1024px) {
-    .treatment-slider-wrapper {
-        flex-direction: column;
-        gap: 30px;
-        padding: 30px;
-    }
-
-    .treatment-slider,
-    .slider-side-text {
-        max-width: 100%;
-        flex: 1 1 100%;
-    }
-
-    .slider-side-text {
-        padding: 20px;
-    }
-
-    .text-inner {
-        font-size: 15px;
-    }
-}
-
-/* === 📱 Адаптація для мобілки === */
-@media (max-width: 767px) {
-    .treatment-slider-wrapper {
-        flex-direction: column;
-        padding: 0;
-        margin: 0;
-    }
-
-    .treatment-slider {
-        width: 100%;
-        height: 100vh;
-        /* Фото на весь екран */
-        position: relative;
-    }
-
-    .treatment-slider .swiper-slide img {
-        width: 100%;
-        height: auto;
-        object-fit: contain;
-    }
-
-    .slider-side-text {
-        background-image: url("images/logo.jpg");
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-        padding: 20px;
-        border-radius: 10px;
-        color: #fff;
-    }
-
-    .text-inner {
-        font-size: 14px;
-        line-height: 1.6;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none;
-    }
-
-    .swiper-pagination {
-        bottom: 10px !important;
-    }
-}
-
-
-
-
-
-
-/* Блок з адресою та соцмережами */
+/* ===== ФУТЕР / КОНТАКТИ ===== */
 
 .footer-contact {
     position: relative;
-    background-image: url("images/logo.jpg");
+    background-image: url("images/IMG-b28106a2541f4431f4f4a8c742a9fb3c-V.jpg");
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
     height: 220px;
     overflow: hidden;
-    
 }
 
-/* Блок з адресою та соцмережами */
 .footer-contact-box {
     position: absolute;
     bottom: 20px;
@@ -656,50 +372,308 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     color: #ffd700;
     font-size: 13px;
-    line-height: 1.2;
-    padding: 8px 12px;
+    line-height: 1.4;
+    padding: 10px 14px;
     border-radius: 6px;
-    max-width: 260px;
+    max-width: 280px;
     z-index: 2;
+}
+
+.footer-contact-box h2 {
+    font-size: 16px;
+    margin-bottom: 6px;
 }
 
 .footer-contact-box p {
     margin: 3px 0;
 }
 
-/* Стиль для посилань Instagram і TikTok */
 .footer-contact-box a {
     color: #ffd700;
     text-decoration: none;
-    font-weight: normal;
 }
 
 .footer-contact-box a:hover {
     text-decoration: underline;
 }
 
-/* Контакти головна */
+/* ===== АДАПТИВНІСТЬ ===== */
+
+@media (max-width: 1024px) {
+    #about-salon {
+        flex-direction: column;
+    }
+
+    #about-salon img {
+        width: 100%;
+    }
+
+    .hero-content.hero-text {
+        padding: 30px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .header-top {
+        padding: 10px 14px;
+    }
+
+    .nav-contact nav {
+        display: none;
+        flex-direction: column;
+        align-items: flex-end;
+        background: rgba(0, 0, 0, 0.9);
+        padding: 12px;
+        border-radius: 8px;
+        position: absolute;
+        top: 50px;
+        right: 10px;
+    }
+
+    .nav-contact nav.active {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .hero-content.hero-text {
+        text-align: left;
+        padding: 30px 16px;
+    }
+
+    .static-text {
+        font-size: 16px;
+    }
+
+    #about-salon {
+        padding: 30px 16px;
+    }
+
+    .portfolio-section {
+        padding: 40px 16px;
+    }
+
+    .footer-contact-box {
+        right: 10px;
+        bottom: 10px;
+        max-width: 220px;
+        font-size: 12px;
+    }
+
+    .hair-color-overlay {
+        padding: 30px 16px;
+    }
+
+    .slider-description {
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .static-text {
+        font-size: 15px;
+    }
+
+    .hero-content.hero-text {
+        padding: 24px 12px;
+    }
+
+    .services {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-contact {
+        height: 260px;
+    }
+}
+
+/* ===== Темна преміальна тема прайсу ===== */
+
+.dark-theme {
+    background: #1a1a1a;
+    color: #f2f2f2;
+    border: 1px solid #333;
+}
+
+.dark-theme h2 {
+    color: #ff4f8a;
+}
+
+.dark-theme h3 {
+    color: #23d1c4;
+}
+
+.icon {
+    font-size: 22px;
+    margin-right: 6px;
+}
+
+/* Роздільники між секціями */
+.separator {
+    height: 1px;
+    background: #333;
+    margin: 20px 0;
+    border-radius: 2px;
+}
+
+/* Картки в темній темі */
+.dark-theme .price-card {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: #eaeaea;
+}
+
+.dark-theme .price-card:hover {
+    background: #333;
+    border-color: #ff4f8a;
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0.92);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Картки */
+.price-card {
+    background: #2a2a2a;
+    border: 1px solid #444;
+    padding: 12px 16px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Один фон для блоку Про салон + Контакти */
+.about-and-contacts-bg {
+    background-image: url("images/klimatzon.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 60px 0;
+    position: relative;
+    z-index: 1;
+}
+
+/* Легке затемнення поверх фото */
+.about-and-contacts-bg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(2px);
+    z-index: 1;
+}
+
+/* Контент поверх фону */
+.about-and-contacts-bg .content-wrapper {
+    position: relative;
+    z-index: 2;
+    color: #fff;
+    padding: 30px;
+    border-radius: 12px;
+}
+
+/* ===== МОДАЛЬНЕ ВІКНО ПРАЙСУ ===== */
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #111;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;      /* 🔥 щоб прайс повністю влазив по висоті */
+    overflow-y: auto;      /* 🔥 прокрутка всередині модального вікна */
+    color: #fff;
+    position: relative;
+}
+
+/* Кнопка закриття */
+.modal-content .close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 32px;
+    cursor: pointer;
+    color: #fff;
+}
+
+/* Портфоліо — збільшена висота фону на комп'ютері */
+@media (min-width: 1024px) {
+    .portfolio-section {
+        min-height:500px;
+        /* 🔥 зробить фон вищим */
+        background-size: cover;
+        background-position: center;
+    }
+}
+
+/* Блок телефону + Вінниця у хедері */
+.header-contact-mini {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    margin-left: 20px;
+    /* 🔥 відступ від меню */
+    margin-top: 4px;
+    /* 🔥 щоб не прилипало до верху */
+}
+
+.phone-link {
+    color: #ffd700;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.phone-link:hover {
+    text-decoration: underline;
+}
+
+/* Вінниця + підказка */
 .city-tooltip {
     position: relative;
     cursor: pointer;
-    color: #fff;
-    /* або інший акцентний */
+    color: #ffd700;
+    font-weight: 600;
+    font-size: 14px;
 }
 
 .tooltip-text {
     visibility: hidden;
     opacity: 0;
     position: absolute;
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: rgba(0, 0, 0, 0.75);
+    bottom: 130%;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
     color: #ffd700;
     padding: 6px 10px;
     border-radius: 6px;
     white-space: nowrap;
     transition: opacity 0.3s ease;
-    z-index: 10;
+    z-index: 30;
 }
 
 .city-tooltip:hover .tooltip-text {
@@ -707,11 +681,59 @@ body {
     opacity: 1;
 }
 
-.background-wrapper {
-    background-image: url('images/str.jpg');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+/* Центруємо текст у HERO */
+.hero-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* 🔥 центр по вертикалі */
+    align-items: center;
+    /* 🔥 центр по горизонталі */
+    min-height: 560px;
+    /* 🔥 висота блоку */
+    padding-top: 0 !important;
+    /* 🔥 прибираємо підняття вверх */
 }
 
+/* Текст всередині HERO */
+.hero-content.hero-text {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    /* 🔥 текст по центру */
+    max-width: 800px;
+    margin-top: 40px;
+    /* 🔥 щоб не прилипав до меню */
+}
 
+/* Вирівнюємо меню + телефон + Вінниця справа */
+.header-top {
+    display: flex;
+    justify-content: space-between; /* логотип зліва */
+    align-items: center;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* відступ між меню і телефоном */
+}
+
+/* Центруємо текст у HERO */
+header.hero-header {
+    padding-top: 0 !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* центр по вертикалі */
+    align-items: center;
+    /* центр по горизонталі */
+    min-height: 560px;
+}
+
+.hero-content.hero-text {
+    text-align: center;
+    margin-top: 40px;
+    /* щоб не прилипало до меню */
+    max-width: 800px;
+}
