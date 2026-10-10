@@ -4,51 +4,66 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Процедура наповнення та зволоження волосся</title>
+    <title>Процедура наповнення та зволоження волосся | SALON 001</title>
 
     <!-- Стилі -->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
-    <!-- Скрипти -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
-    <script src="script.js" defer></script>
 </head>
 
 <body>
-    <header></header>
 
     <main>
-        <section class="treatment-slider-wrapper">
-            <div class="swiper treatment-slider">
+        <section class="treatment-slider-wrapper salon001-bg">
+
+            <!-- Текст збоку -->
+            <div class="hydration-text-side">
+                Це унікальна послуга, яка повертає волоссю блиск, еластичність і здоровий вигляд.
+                Ми використовуємо <strong>GK Hair Taming System with Juvexin</strong> —
+                професійний засіб преміум-класу, який глибоко проникає у структуру волосся,
+                живить і відновлює його зсередини.
+            </div>
+
+            <!-- Слайдер -->
+            <div class="swiper treatment-slider center-slider">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide"><img src="images/proc.jpg" alt="Фото процедури 1" /></div>
-                    <div class="swiper-slide"><img src="images/procedura.jpg" alt="Фото процедури 1" /></div>
-                    <div class="swiper-slide"><img src="images/farb-blond3.jpg" alt="Фото процедури 2" /></div>
-                    <div class="swiper-slide"><img src="images/farb-brunet.jpg" alt="Фото процедури 3" /></div>
-                    <div class="swiper-slide"><img src="images/procedura2.jpg" alt="Фото процедури 4" /></div>
-                    <div class="swiper-slide"><img src="images/procedura3.jpg" alt="Фото процедури 5" /></div>
+                    <div class="swiper-slide"><img src="images/procedura.jpg" alt="Фото процедури 2" /></div>
+                    <div class="swiper-slide"><img src="images/farb-blond3.jpg" alt="Фото процедури 3" /></div>
+                    <div class="swiper-slide"><img src="images/farb-brunet.jpg" alt="Фото процедури 4" /></div>
+                    <div class="swiper-slide"><img src="images/procedura2.jpg" alt="Фото процедури 5" /></div>
+                    <div class="swiper-slide"><img src="images/procedura3.jpg" alt="Фото процедури 6" /></div>
                 </div>
+
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
                 <div class="swiper-pagination"></div>
             </div>
 
-            <div class="slider-side-text">
-                <div class="text-inner">
-                    <p>
-                        Це унікальна послуга, яка повертає волоссю блиск, еластичність і здоровий вигляд. Ми
-                        використовуємо
-                        <strong>GK Hair Taming System with Juvexin</strong> — професійний засіб преміум-класу, який
-                        глибоко проникає
-                        у структуру волосся, живить і відновлює його зсередини.
-                    </p>
-                    </div>
-            </div>
         </section>
     </main>
 
-    <footer></footer>
+    <!-- Підключаємо Swiper (БЕЗ defer!) -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- Ініціалізація Swiper -->
+    <script>
+        const swiper = new Swiper('.treatment-slider', {
+            loop: true,
+            autoplay: {
+                delay: 3000,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            }
+        });
+    </script>
+
 </body>
 
 </html>
